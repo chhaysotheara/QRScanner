@@ -40,10 +40,9 @@ class ViewController: UIViewController,QRCodeReaderViewControllerDelegate{
             
             present(alert, animated: true, completion: nil)
         }
-    }//end button
+    }//end button scanner
     
     // MARK: - QRCodeReader Delegate Methods
-    
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         
@@ -57,19 +56,19 @@ class ViewController: UIViewController,QRCodeReaderViewControllerDelegate{
             
             self?.present(alert, animated: true, completion: nil)
         }
-    }
+    }//end reader with result
     
     func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
         if let cameraName = newCaptureDevice.device.localizedName {
             print("Switching capturing to: \(cameraName)")
         }
-    }
+    }//End reader
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         reader.stopScanning()
         
         dismiss(animated: true, completion: nil)
-    }
+    }//end readerdidcancel
     
 
 }
